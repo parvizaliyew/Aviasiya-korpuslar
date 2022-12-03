@@ -20,7 +20,7 @@ class FrontController extends Controller
         $sliders=Slider::orderBy('sort','ASC')->get();
         $about=About::first();
         $korpuss=Korpus::get();
-        $teachers=Teacher::with('getKafedra')->get();
+        $teachers=Teacher::with('getKafedra')->take(10)->get();
         return view('front.pages.index',compact('sliders','about','korpuss','teachers'));
     }
 

@@ -66,10 +66,10 @@
             <?php $__currentLoopData = $korpuss; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div  class="col-md-6 col-lg-4 mb-4">
                 <div class="card mb-2 p-3">
-<a href="">
-    <img class="card-img-top" src="<?php echo e(asset('front/')); ?>/img/service-1.jpg" alt="">
-</a>                    <div class="card-body bg-secondary d-flex align-items-center p-0">
-                        <h6  class="card-title text-white  m-auto"><?php echo e($kor->title); ?></h6>
+                    <a href="<?php echo e(route('korpus_single',$kor->id)); ?>">
+                        <img class="card-img-top" src="<?php echo e(asset($kor->img)); ?>/" alt="">
+                    </a>                    <div class="card-body bg-secondary d-flex align-items-center p-0">  
+                        <h6  class="card-title text-white  m-auto"> <?php echo e(Str::limit($kor->title, 30, '...')); ?></h6>
                     </div>
                     <div class="card-footer">
                         <?php echo e(Str::limit($kor->desc, 30, '...')); ?>
@@ -96,7 +96,6 @@
                 <div class="row mb-2 align-items-center">
                     <div class="col-6 text-right">
                         <h6><?php echo e($val->name); ?></h6>
-                        <h6 class="text-muted font-weight-normal text-capitalize mb-2"><?php echo e($val->getKafedra->name); ?></h6>                      
                     </div>
                     <div class="col-6">
                         <img  style="height: 250px;" class="img-thumbnail p-3" src="<?php echo e(asset($val->img)); ?>" alt="Image">
@@ -111,7 +110,6 @@
                     </div>
                     <div class="col-6 text-left">
                         <h6><?php echo e($val->name); ?></h6>
-                        <h6 class="text-muted font-weight-normal text-capitalize mb-2"><?php echo e($val->getKafedra->name); ?></h6>
                     </div>
                 </div>
             </div>

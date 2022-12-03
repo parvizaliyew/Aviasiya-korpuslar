@@ -66,10 +66,10 @@
             @foreach ($korpuss as $kor)
                 <div  class="col-md-6 col-lg-4 mb-4">
                 <div class="card mb-2 p-3">
-<a href="">
-    <img class="card-img-top" src="{{ asset('front/') }}/img/service-1.jpg" alt="">
-</a>                    <div class="card-body bg-secondary d-flex align-items-center p-0">
-                        <h6  class="card-title text-white  m-auto">{{ $kor->title }}</h6>
+                    <a href="{{ route('korpus_single',$kor->id) }}">
+                        <img class="card-img-top" src="{{ asset($kor->img) }}/" alt="">
+                    </a>                    <div class="card-body bg-secondary d-flex align-items-center p-0">  
+                        <h6  class="card-title text-white  m-auto"> {{ Str::limit($kor->title, 30, '...') }}</h6>
                     </div>
                     <div class="card-footer">
                         {{ Str::limit($kor->desc, 30, '...') }}
@@ -95,7 +95,6 @@
                 <div class="row mb-2 align-items-center">
                     <div class="col-6 text-right">
                         <h6>{{ $val->name }}</h6>
-                        <h6 class="text-muted font-weight-normal text-capitalize mb-2">{{ $val->getKafedra->name }}</h6>                      
                     </div>
                     <div class="col-6">
                         <img  style="height: 250px;" class="img-thumbnail p-3" src="{{ asset($val->img) }}" alt="Image">
@@ -110,7 +109,6 @@
                     </div>
                     <div class="col-6 text-left">
                         <h6>{{ $val->name }}</h6>
-                        <h6 class="text-muted font-weight-normal text-capitalize mb-2">{{ $val->getKafedra->name }}</h6>
                     </div>
                 </div>
             </div>
